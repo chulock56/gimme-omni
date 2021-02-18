@@ -21,7 +21,7 @@ Also uses the following community modules:
     * requests (https://pypi.org/project/requests/)
     * requests-kerberos (https://pypi.org/project/requests-kerberos/)
     * tabulate (https://pypi.org/project/tabulate/)
-3. Download the code from this Repo and extract it to the directory of your choice. (I use C:\Users\{name}\PythonScripts\)
+3. Download the code from this Repo and extract it to the directory of your choice. (I use C:\Users\NAME\PythonScripts\)
 4. Add this directory to PATH (instructions: https://docs.alfresco.com/4.2/tasks/fot-addpath.html)
 5. Modify LINE 5 of the .bat file to use:
     * The directory of your Python environment (i.e. install directory; location of python.exe)

@@ -1,10 +1,10 @@
 # gimme-omni
-Grabs existing Omni-Channel cases and shows what your new staleness would be if you were to accept one
+Grabs existing Omni-Channel cases and shows what your new staleness and queue position would be if you were to accept one
 
 ## What it does
-Retrieves the list of currently available Omni-Channel cases, computes what your new staleness would be if you accepted one of those cases (based on your current staleness and the percent reduction associated with each case), and finally prints the results to console in a nicely-formatted table.
+Retrieves the list of currently available Omni-Channel cases, computes what your new staleness and queue position would be if you accepted one of those cases (based on your current staleness and the percent reduction associated with each case), and finally prints the results to console in a nicely-formatted table.
 
-<img src="https://github.com/chulock56/gimme-omni/blob/main/10%3B38%3B04.png"/>
+<img src="https://github.com/chulock56/gimme-omni/blob/main/sampleImg.png"/>
 
 ## How it works
 Uses the standard Python library, including the following modules:
@@ -17,7 +17,7 @@ Also uses the following community modules:
 - requests-kerberos
 - tabulate
 
-Staleness and Omni case data is retrieved via the TSOps API.
+Staleness, position, and Omni case data is retrieved via the TSOps API.
 
 ## How to get it working on your computer
 1. Install Python3 (https://www.python.org/downloads/)
@@ -31,6 +31,8 @@ Staleness and Omni case data is retrieved via the TSOps API.
     * The directory of your Python environment (i.e. install directory; location of python.exe)
     * The directory where you extracted the tsopsStalenessCalc.py script
 6. Modify LINE 19 of the tsopsStalenessCalc.py file to use the URI of your profile (e.g. achulock is mine). This should follow the format of your email address.
-7. If needed, you will have to modify LINE 53 of the tsopsStalenessCalc.py file to include any languages other than English in the logic. By default, the script is written to only include English Omni-channel cases
-8. Add the TSOps certificate chain to your Python trusted certificates list. Details are in the script file itself, starting at LINE 4.
-9. If you added the directory to PATH, you should be able to run the .bat file from the Windows Run dialog (Windows Key + R) without specifying a path to the directory.
+7. If needed, you will have to modify the tsopsStalenessCalc.py file to include any languages other than English in the logic:
+    * By default, the script is written to only include English Omni-channel cases. You need to modify LINE 70 if you want to include other languages.
+    * By default, the script only calculates your new position in the English queue. You need to modify LINE 86 if you want to calculate new position in a queue other than English. Currently, you cannot compute new position for multiple queues.
+9. Add the TSOps certificate chain to your Python trusted certificates list. Details are in the script file itself, starting at LINE 4.
+10. If you added the directory to PATH, you should be able to run the .bat file from the Windows Run dialog (Windows Key + R) without specifying a path to the directory.

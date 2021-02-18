@@ -20,7 +20,7 @@ Also uses the following community modules:
 Staleness and Omni case data is retrieved via the TSOps API.
 
 ## How to get it working on your computer
-1. Install Python3 
+1. Install Python3 (https://www.python.org/downloads/)
 2. Install the following modules to your Python environment (all available from PyPi. See links for installation instructions):
     * requests (https://pypi.org/project/requests/)
     * requests-kerberos (https://pypi.org/project/requests-kerberos/)

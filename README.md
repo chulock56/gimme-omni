@@ -4,7 +4,7 @@ Grabs existing Omni-Channel cases and shows what your new staleness and queue po
 ## What it does
 Retrieves the list of currently available Omni-Channel cases, computes what your new staleness and queue position would be if you accepted one of those cases (based on your current staleness and the percent reduction associated with each case), and finally prints the results to console in a nicely-formatted table.
 
-<img src="https://github.com/chulock56/gimme-omni/blob/main/sampleImg.png"/>
+<img src="https://github.com/chulock56/gimme-omni/blob/main/sample.png"/>
 
 ## How it works
 Uses the standard Python library, including the following modules:

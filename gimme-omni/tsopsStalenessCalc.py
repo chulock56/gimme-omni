@@ -104,16 +104,19 @@ for i, group in enumerate(omniCases):
 for i, group in enumerate(omniCases):
     newStaleness = staleness * 0.01 * (100 - group[2])
 
-    # search through the queue and find what your new position would be for each case
-    pos = 0
-    while newStaleness < queue[pos]:
-        pos += 1
-        continue
+    if newStaleness == 0.0:  # if 100% staleness reset, then new position would be at the bottom of queue
+        omniCases[i][3] = len(queue)
     else:
-        if pos == 0:
-            omniCases[i][3] = 1
+        # search through the queue and find what your new position would be for each case
+        pos = 0
+        while newStaleness < queue[pos]:
+            pos += 1
+            continue
         else:
-            omniCases[i][3] = pos
+            if pos == 0:
+                omniCases[i][3] = 1
+            else:
+                omniCases[i][3] = pos
 
     newStaleness_formatted = format_staleness(newStaleness)  # convert new staleness in unix to days, hours, mins, secs
 

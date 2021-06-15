@@ -103,20 +103,26 @@ for i, group in enumerate(omniCases):
 # Modify list of lists: replace case creation timestamp with new staleness value; and add new position in queue
 for i, group in enumerate(omniCases):
     newStaleness = staleness * 0.01 * (100 - group[2])
+    # print(newStaleness)
 
-    if newStaleness == 0.0:  # if 100% staleness reset, then new position would be at the bottom of queue
-        omniCases[i][3] = len(queue)
-    else:
-        # search through the queue and find what your new position would be for each case
-        pos = 0
-        while newStaleness < queue[pos]:
-            pos += 1
-            continue
+    try:
+        if newStaleness == 0.0:  # if 100% staleness reset, then new position would be at the bottom of queue
+            omniCases[i][3] = len(queue)
+            # print(omniCases[i][3])
         else:
-            if pos == 0:
-                omniCases[i][3] = 1
+            # search through the queue and find what your new position would be for each case
+            pos = 0
+            while newStaleness < queue[pos]:
+                pos += 1
+                continue
             else:
-                omniCases[i][3] = pos
+                if pos == 0:
+                    omniCases[i][3] = 1
+                else:
+                    omniCases[i][3] = pos
+    
+    except IndexError:
+        omniCases[i][3] = "Error"
 
     newStaleness_formatted = format_staleness(newStaleness)  # convert new staleness in unix to days, hours, mins, secs
 

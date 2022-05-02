@@ -42,7 +42,7 @@ def format_staleness(staleness_unix: int) -> str:
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Request to get staleness value ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-resStale = requests.get('https://tsops-api-phl.dev.osisoft.int/api/agents/achulock', auth=HTTPKerberosAuth())
+resStale = requests.get('https://<TSOPsAPIHostname>/api/agents/achulock', auth=HTTPKerberosAuth())
 resStale.raise_for_status()  # check that above request  was successful, raise exception if not
 
 resStaleJson = resStale.json()  # convert response to json format
@@ -58,7 +58,7 @@ staleness_formatted = format_staleness(staleness)
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Request to get current omni cases ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-resOmni = requests.get('https://tsops-api-phl.dev.osisoft.int/api/cases/current', auth=HTTPKerberosAuth())
+resOmni = requests.get('https://<TSOPsAPIHostname>/api/cases/current', auth=HTTPKerberosAuth())
 resOmni.raise_for_status()  # check that above request  was successful, raise exception if not
 
 resOmniJson = resOmni.json()  # convert response to json format
@@ -74,7 +74,7 @@ for case in resOmniJson:
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Request to get TSOps available agents ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-resQueue = requests.get('https://tsops-api-phl.dev.osisoft.int/api/agents/simple', auth=HTTPKerberosAuth())
+resQueue = requests.get('https://<TSOPsAPIHostname>/api/agents/simple', auth=HTTPKerberosAuth())
 resQueue.raise_for_status()  # check that above request  was successful, raise exception if not
 
 resQueueJson = resQueue.json()  # convert response to json format
